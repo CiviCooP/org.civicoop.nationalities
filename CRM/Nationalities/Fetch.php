@@ -37,7 +37,7 @@ class CRM_Nationalities_Fetch {
       throw new Exception("Error opening file: '".$this->file."'");
     }
     
-    while($line == fgets($handle)) {
+    while($line = fgets($handle)) {
       $n = str_replace(array("\r", "\n"), array("", ""), $line);
       $params = array();
       $params[1] = array($this->option_group_id, 'Integer');

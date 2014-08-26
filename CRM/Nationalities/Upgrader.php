@@ -12,7 +12,7 @@ class CRM_Nationalities_Upgrader extends CRM_Nationalities_Upgrader_Base {
   public function install() {
     $this->executeCustomDataFile('xml/nationalities.xml');
     
-    $option_group_id = civcirm_api3('OptionGroup', 'getvalue', array('return' => 'id', 'name' => 'nationalities'));
+    $option_group_id = civicrm_api3('OptionGroup', 'getvalue', array('return' => 'id', 'name' => 'nationalities'));
     $fetcher = CRM_Nationalities_Fetch::singleton($option_group_id, $this->extensionDir . '/nationalities.txt');
     $fetcher->updateNationalities();
   }
