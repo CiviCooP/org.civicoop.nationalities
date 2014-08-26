@@ -15,7 +15,7 @@
       <table_name>civicrm_value_nationality</table_name>
       <is_multiple>0</is_multiple>
       <collapse_adv_display>0</collapse_adv_display>
-      <created_date>2014-08-26 07:42:58</created_date>
+      <created_date>20140826074258</created_date>
       <is_reserved>0</is_reserved>
     </CustomGroup>
   </CustomGroups>
