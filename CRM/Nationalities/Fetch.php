@@ -49,7 +49,7 @@ class CRM_Nationalities_Fetch {
       }
       
       //record does not exist insert it
-      $params[3] = array(n, 'String');
+      $params[3] = array($n, 'String');
       $sql = "INSERT INTO `civicrm_option_value` (`option_group_id`, `value`, `label`, `is_reserved`, `is_active`, `weight`) VALUES(%1, %2, %3, '1', '1', '0')";
       CRM_Core_DAO::executeQuery($sql, $params);
     }
