@@ -38,10 +38,10 @@ class CRM_Nationalities_Fetch {
     }
     
     while($line = fgets($handle)) {
-      $n = str_replace(array("\r", "\n"), array("", ""), $line);
-      $params = array();
-      $params[1] = array($this->option_group_id, 'Integer');
-      $params[2] = array($n, 'String');
+      $n = str_replace(["\r", "\n"], ["", ""], $line);
+      $params = [];
+      $params[1] = [$this->option_group_id, 'Integer'];
+      $params[2] = [$n, 'String'];
       $dao = CRM_Core_DAO::executeQuery("SELECT * FROM `civicrm_option_value` WHERE `option_group_id` = %1 AND `value` = %2", $params);
       if ($dao->fetch()) {
         //record akready exist
@@ -49,7 +49,7 @@ class CRM_Nationalities_Fetch {
       }
       
       //record does not exist insert it
-      $params[3] = array($n, 'String');
+      $params[3] = [$n, 'String'];
       $sql = "INSERT INTO `civicrm_option_value` (`option_group_id`, `value`, `label`, `is_reserved`, `is_active`, `weight`) VALUES(%1, %2, %3, '1', '1', '0')";
       CRM_Core_DAO::executeQuery($sql, $params);
     }
